@@ -7,20 +7,19 @@
   
   <title>Ankush weds Supriya invitation</title>
 
-  <!-- CRITICAL: Open Graph / WhatsApp Preview Meta Tags at the top of HEAD -->
+  <!-- Open Graph & WhatsApp Preview Metadata -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Ankush weds Supriya" />
   <meta property="og:title" content="Ankush weds Supriya invitation" />
   <meta property="og:description" content="With the blessings of Sweety Gupta &amp; Naresh Kumar. Barat &amp; Wedding on 10 November 2026 at MJ Farm, Kharar." />
   <meta property="og:url" content="https://ankushvirus007.github.io/wedding-invites/" />
-  
-  <!-- Direct absolute link to cover image -->
+
+  <!-- Absolute HTTPS Links for Metadata Crawlers -->
   <meta property="og:image" content="https://ankushvirus007.github.io/wedding-invites/cover.jpg" />
   <meta property="og:image:secure_url" content="https://ankushvirus007.github.io/wedding-invites/cover.jpg" />
   <meta property="og:image:type" content="image/jpeg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Ankush and Supriya Wedding Invitation" />
   <link rel="image_src" href="https://ankushvirus007.github.io/wedding-invites/cover.jpg" />
 
   <!-- Twitter Card Preview Metadata -->
@@ -42,6 +41,7 @@
       --royal-maroon: #4a050f;
       --deep-crimson: #1f0105;
       --card-glass: rgba(255, 255, 255, 0.96);
+      --dark-glass: rgba(30, 2, 7, 0.88);
       --safe-bottom: env(safe-area-inset-bottom, 16px);
     }
 
@@ -62,7 +62,6 @@
       position: relative;
     }
 
-    /* Ambient Rose Petal & Gold Sparkle Canvas */
     #fx-canvas {
       position: fixed;
       top: 0;
@@ -73,22 +72,47 @@
       z-index: 995;
     }
 
-    /* Floating Top Music Equalizer Pill */
-    .music-pill {
+    /* Floating Top Action Bar: Share + Music */
+    .top-action-bar {
       position: fixed;
       top: 18px;
       right: 18px;
       z-index: 999;
-      background: rgba(30, 2, 7, 0.92);
-      border: 1px solid var(--gold-primary);
-      border-radius: 30px;
-      padding: 8px 14px;
       display: flex;
       align-items: center;
       gap: 8px;
+    }
+
+    .top-pill-btn {
+      background: rgba(30, 2, 7, 0.92);
+      border: 1px solid var(--gold-primary);
+      border-radius: 30px;
+      padding: 8px 13px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
       cursor: pointer;
       backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+      color: var(--gold-light);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-weight: 600;
+      transition: transform 0.2s, background 0.2s, border-color 0.2s;
+      outline: none;
+    }
+
+    .top-pill-btn:active {
+      transform: scale(0.93);
+    }
+
+    .top-pill-btn svg {
+      width: 14px;
+      height: 14px;
+      stroke: var(--gold-primary);
     }
 
     .music-bars {
@@ -115,17 +139,44 @@
       100% { height: 100%; }
     }
 
-    .music-label {
-      font-size: 0.7rem;
+    /* Floating Scroll to Top Arrow Button */
+    .scroll-top-btn {
+      position: fixed;
+      bottom: calc(76px + var(--safe-bottom));
+      right: 18px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(30, 2, 7, 0.92);
+      border: 1.5px solid var(--gold-primary);
       color: var(--gold-light);
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6), 0 0 12px rgba(223, 186, 115, 0.3);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(18px) scale(0.9);
+      transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s;
+      z-index: 997;
+      outline: none;
     }
 
-    /* ========================================================
-       1. INSTAGRAM-STYLE 3D ROYAL ENVELOPE OPENING ANIMATION
-       ======================================================== */
+    .scroll-top-btn.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0) scale(1);
+    }
+
+    .scroll-top-btn:active {
+      transform: scale(0.9);
+    }
+
+    /* 1. 3D ROYAL ENVELOPE SCREEN */
     #envelope-screen {
       position: fixed;
       inset: 0;
@@ -164,7 +215,6 @@
       border: 1.5px solid var(--gold-primary);
     }
 
-    /* Royal Invitation Card inside envelope */
     .envelope-card-inner {
       position: absolute;
       top: 10px;
@@ -212,7 +262,6 @@
       font-weight: 600;
     }
 
-    /* Front Pocket Geometry */
     .envelope-pocket-svg {
       position: absolute;
       bottom: 0;
@@ -223,7 +272,6 @@
       pointer-events: none;
     }
 
-    /* 3D Top Flap */
     .envelope-top-flap {
       position: absolute;
       top: 0;
@@ -243,7 +291,6 @@
       filter: drop-shadow(0 6px 12px rgba(0,0,0,0.5));
     }
 
-    /* Gold Wax Seal Button */
     .envelope-seal {
       position: absolute;
       top: 135px;
@@ -306,7 +353,6 @@
       50% { transform: translateY(-4px); }
     }
 
-    /* Animation States when Clicked */
     .envelope-stage.is-open .envelope-seal {
       transform: translate(-50%, -50%) scale(1.4);
       opacity: 0;
@@ -325,7 +371,7 @@
     }
 
     /* ========================================================
-       2. MAIN PAGE CONTENT & SECTIONS
+       2. MAIN PAGE LAYOUT & CARDS
        ======================================================== */
     #main-content {
       width: 100%;
@@ -344,19 +390,53 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 60px 10px 20px;
+      padding: 50px 10px 20px;
       position: relative;
       z-index: 2;
     }
 
-    .om-ganesh {
-      font-size: 0.95rem;
-      letter-spacing: 3px;
+    /* TRADITIONAL SHREE GANESH JI CIRCULAR MEDALLION */
+    .ganesh-circle-frame {
+      width: 118px;
+      height: 118px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #630815 0%, #200105 100%);
+      border: 3px solid #dfba73;
+      outline: 2px dashed rgba(254, 240, 199, 0.6);
+      outline-offset: -6px;
+      padding: 5px;
+      box-shadow: 0 0 28px rgba(223, 186, 115, 0.55), inset 0 0 14px rgba(223, 186, 115, 0.4);
+      margin: 0 auto 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      animation: ganeshAura 3.5s infinite alternate ease-in-out;
+    }
+
+    @keyframes ganeshAura {
+      0% { box-shadow: 0 0 16px rgba(223, 186, 115, 0.4); transform: scale(1); }
+      100% { box-shadow: 0 0 32px rgba(254, 240, 199, 0.85); transform: scale(1.04); }
+    }
+
+    .ganesh-circle-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      display: block;
+    }
+
+    .ganesh-hindi-script {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 1.15rem;
+      letter-spacing: 2px;
       background: var(--gold-gradient);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       font-weight: 700;
       margin-bottom: 6px;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.6);
     }
 
     .ganesh-mantra {
@@ -394,7 +474,6 @@
       font-size: 0.95rem;
     }
 
-    /* Luxury Arched Couple Frame */
     .photo-arch-frame {
       width: 250px;
       height: 340px;
@@ -515,7 +594,65 @@
       margin-top: 4px;
     }
 
-    /* 3. Vertical Reels Photo Feed (Swipe Up) */
+    /* MEET THE COUPLE PROFILE CARDS */
+    .profile-cards-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+
+    .profile-card {
+      background: var(--dark-glass);
+      border: 1px solid var(--gold-primary);
+      border-radius: 18px;
+      padding: 18px 10px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+      position: relative;
+    }
+
+    .profile-avatar-frame {
+      width: 82px;
+      height: 82px;
+      margin: 0 auto 10px;
+      border-radius: 50%;
+      border: 2px solid var(--gold-primary);
+      padding: 3px;
+      background: var(--gold-gradient);
+    }
+
+    .profile-avatar-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .profile-role {
+      font-size: 0.62rem;
+      letter-spacing: 1.5px;
+      color: var(--gold-light);
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .profile-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+      margin: 4px 0 6px;
+    }
+
+    .profile-detail {
+      font-size: 0.68rem;
+      color: #eed6be;
+      line-height: 1.4;
+    }
+
+    /* 3. VERTICAL REELS */
     .reel-viewport {
       position: relative;
       width: 100%;
@@ -718,54 +855,148 @@
       100% { transform: translate(-50%, -80px) scale(1); opacity: 0; }
     }
 
-    /* 4. Ceremonies Timeline Cards */
+    /* ========================================================
+       4. SCROLL ENTRANCE 3D REVEAL & FIT SETTINGS
+       ======================================================== */
     .events-flow {
       display: flex;
       flex-direction: column;
-      gap: 18px;
+      gap: 24px;
       position: relative;
       z-index: 2;
     }
 
-    .event-card {
-      background: var(--card-glass);
-      border-radius: 20px;
-      padding: 20px 18px;
-      border: 1px solid rgba(223, 186, 115, 0.5);
-      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
-      position: relative;
-      overflow: hidden;
-      transform: translateY(15px);
+    /* 3D Card Animation for every major block */
+    .event-card,
+    .profile-card,
+    .hashtag-card,
+    .guide-card,
+    .invitation-card-box {
       opacity: 0;
-      transition: all 0.5s ease-out;
+      transform: perspective(900px) rotateX(15deg) translateY(50px) scale(0.92);
+      filter: blur(4px);
+      transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+                  filter 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                  box-shadow 0.8s ease;
+      will-change: opacity, transform, filter;
     }
 
-    .event-card.in-view {
-      transform: translateY(0);
+    .event-card.in-view,
+    .profile-card.in-view,
+    .hashtag-card.in-view,
+    .guide-card.in-view,
+    .invitation-card-box.in-view {
       opacity: 1;
+      transform: perspective(900px) rotateX(0deg) translateY(0) scale(1);
+      filter: blur(0);
     }
 
-    .event-card::before {
+    /* Gold Shimmer Sweep across card on arrival */
+    .event-card.in-view::after {
       content: "";
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 5px;
-      height: 100%;
-      background: var(--gold-gradient);
+      top: -40%;
+      left: -80%;
+      width: 55%;
+      height: 180%;
+      background: linear-gradient(
+        65deg,
+        transparent,
+        rgba(255, 255, 255, 0.15) 35%,
+        rgba(254, 240, 199, 0.4) 50%,
+        transparent 70%
+      );
+      transform: rotate(25deg);
+      animation: cardShimmerFlare 1.3s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+      pointer-events: none;
+    }
+
+    @keyframes cardShimmerFlare {
+      0% { left: -80%; opacity: 0; }
+      20% { opacity: 1; }
+      100% { left: 140%; opacity: 0; }
+    }
+
+    .event-card {
+      background: var(--card-glass);
+      border-radius: 22px;
+      padding: 0;
+      border: 1.5px solid rgba(223, 186, 115, 0.6);
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.45);
+      position: relative;
+      overflow: hidden;
     }
 
     .event-card.highlight {
-      background: linear-gradient(135deg, #ffffff 0%, #fff6ea 100%);
-      border: 1.5px solid #b38728;
-      box-shadow: 0 12px 34px rgba(191, 149, 63, 0.35);
+      background: linear-gradient(135deg, #ffffff 0%, #fff7ed 100%);
+      border: 2px solid #b38728;
+      box-shadow: 0 16px 40px rgba(191, 149, 63, 0.45);
+    }
+
+    .event-banner-wrap {
+      position: relative;
+      width: 100%;
+      height: 195px;
+      overflow: hidden;
+      background: #230206;
+    }
+
+    .event-banner-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+
+    .event-card:hover .event-banner-img {
+      transform: scale(1.05);
+    }
+
+    /* Alignments for ceremony banners */
+    .banner-haldi {
+      object-position: center 30% !important;
+    }
+
+    .banner-jago {
+      object-position: center 25% !important;
+    }
+
+    .event-banner-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.2) 60%, transparent 100%);
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      padding: 12px 16px;
+      pointer-events: none;
+    }
+
+    .event-badge-tag {
+      background: rgba(30, 2, 7, 0.88);
+      border: 1px solid var(--gold-primary);
+      color: var(--gold-light);
+      font-size: 0.65rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-weight: 700;
+      backdrop-filter: blur(6px);
+    }
+
+    .event-card-body {
+      padding: 18px 18px 20px;
     }
 
     .card-top-row {
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      align-items: flex-start;
       margin-bottom: 8px;
+      gap: 8px;
     }
 
     .card-title-group h3 {
@@ -773,12 +1004,22 @@
       font-size: 1.25rem;
       color: var(--royal-maroon);
       font-weight: 700;
+      line-height: 1.25;
+    }
+
+    .card-title-group .event-subheading {
+      font-family: 'Marcellus', serif;
+      font-size: 0.8rem;
+      color: #9c6c28;
+      font-style: italic;
+      margin-top: 2px;
     }
 
     .card-title-group .event-date {
       font-size: 0.8rem;
       color: #8c5d1b;
       font-weight: 600;
+      margin-top: 4px;
     }
 
     .card-time-pill {
@@ -797,11 +1038,18 @@
       color: #fff;
     }
 
+    .card-ritual-desc {
+      font-size: 0.78rem;
+      color: #554135;
+      line-height: 1.5;
+      margin-top: 10px;
+    }
+
     .metadata-row {
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
-      margin: 10px 0 14px;
+      margin: 12px 0 14px;
     }
 
     .meta-pill {
@@ -813,13 +1061,16 @@
       font-weight: 600;
       display: inline-flex;
       align-items: center;
-      gap: 4px;
+      gap: 5px;
       border: 1px solid rgba(223, 186, 115, 0.4);
     }
 
-    .meta-pill.attire {
-      background: #faefe4;
-      color: #8a3b14;
+    .color-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      display: inline-block;
+      border: 1px solid rgba(0,0,0,0.15);
     }
 
     .card-actions {
@@ -836,8 +1087,8 @@
       align-items: center;
       justify-content: center;
       gap: 6px;
-      padding: 9px 10px;
-      border-radius: 10px;
+      padding: 10px 10px;
+      border-radius: 12px;
       font-size: 0.74rem;
       font-weight: 700;
       text-decoration: none;
@@ -854,24 +1105,94 @@
       border: 1px solid var(--gold-primary);
     }
 
-    /* 5. Royal Family Greeting Footer */
+    /* 5. HASHTAG CARD */
+    .hashtag-card {
+      background: linear-gradient(135deg, rgba(74, 5, 15, 0.9) 0%, rgba(31, 1, 5, 0.95) 100%);
+      border: 1.5px solid var(--gold-primary);
+      border-radius: 20px;
+      padding: 24px 20px;
+      text-align: center;
+      margin: 30px 0;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+      backdrop-filter: blur(8px);
+      position: relative;
+    }
+
+    .hashtag-title {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 1.35rem;
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .hashtag-sub {
+      font-size: 0.76rem;
+      color: #f7dfba;
+      line-height: 1.5;
+    }
+
+    /* 6. THOUGHTFUL GUEST GUIDE CARD */
+    .guide-card {
+      background: var(--card-glass);
+      border-radius: 20px;
+      padding: 22px 18px;
+      border: 1.5px solid rgba(223, 186, 115, 0.6);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.4);
+      margin-bottom: 30px;
+      position: relative;
+    }
+
+    .guide-header {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      color: var(--royal-maroon);
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 14px;
+    }
+
+    .guide-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .guide-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.78rem;
+      color: #4a382e;
+      line-height: 1.45;
+    }
+
+    .guide-item span.icon {
+      font-size: 1.2rem;
+      line-height: 1;
+    }
+
+    /* 7. ROYAL FAMILY FOOTER */
     footer {
       text-align: center;
-      margin-top: 50px;
-      padding-top: 35px;
+      margin-top: 30px;
+      padding-top: 30px;
       border-top: 1px solid rgba(223, 186, 115, 0.35);
       position: relative;
       z-index: 2;
     }
 
     .invitation-card-box {
-      background: rgba(30, 2, 7, 0.75);
+      background: var(--dark-glass);
       border: 1px solid rgba(223, 186, 115, 0.6);
       border-radius: 20px;
       padding: 26px 20px;
       margin-bottom: 25px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.5);
       backdrop-filter: blur(8px);
+      position: relative;
     }
 
     .family-section-label {
@@ -918,7 +1239,7 @@
       margin-top: 18px;
     }
 
-    /* Floating Sticky Bottom Thumb Bar */
+    /* Floating Bottom Thumb Bar */
     .mobile-thumb-bar {
       position: fixed;
       bottom: 0;
@@ -970,7 +1291,7 @@
 </head>
 <body>
 
-  <!-- INVISIBLE OFF-SCREEN BACKGROUND YOUTUBE ENGINE -->
+  <!-- INVISIBLE BACKGROUND YOUTUBE AUDIO ENGINE -->
   <div style="position: fixed; top: -9999px; left: -9999px; width: 10px; height: 10px; overflow: hidden; pointer-events: none; z-index: -9999;">
     <iframe 
       id="yt-embed-player"
@@ -985,21 +1306,39 @@
 
   <canvas id="fx-canvas"></canvas>
 
-  <!-- FLOATING MUSIC TOGGLE PILL -->
-  <div class="music-pill" id="music-btn" title="Toggle Music">
-    <div class="music-bars">
-      <div class="music-bar paused"></div>
-      <div class="music-bar paused"></div>
-      <div class="music-bar paused"></div>
+  <!-- FLOATING TOP CONTROLS: SHARE & MUSIC PILLS -->
+  <div class="top-action-bar">
+    <button class="top-pill-btn" id="share-btn" title="Share Invitation">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="18" cy="5" r="3"></circle>
+        <circle cx="6" cy="12" r="3"></circle>
+        <circle cx="18" cy="19" r="3"></circle>
+        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+      </svg>
+      <span>Share</span>
+    </button>
+
+    <div class="top-pill-btn" id="music-btn" title="Toggle Music">
+      <div class="music-bars">
+        <div class="music-bar paused"></div>
+        <div class="music-bar paused"></div>
+        <div class="music-bar paused"></div>
+      </div>
+      <span id="music-label">Muted</span>
     </div>
-    <span class="music-label" id="music-label">Muted</span>
   </div>
+
+  <!-- FLOATING SCROLL TO TOP ARROW BUTTON -->
+  <button class="scroll-top-btn" id="scroll-top-btn" title="Scroll to top" aria-label="Scroll to top">
+    ▲
+  </button>
 
   <!-- 1. INSTAGRAM 3D ROYAL ENVELOPE SCREEN -->
   <div id="envelope-screen">
     <div class="envelope-stage" id="envelope-trigger">
       
-      <!-- Top Triangular Flap (3D Flip) -->
+      <!-- Top Flap (3D Flip) -->
       <div class="envelope-top-flap" id="envelope-top-flap">
         <svg viewBox="0 0 320 135">
           <polygon points="0,0 320,0 160,130" fill="#540713" stroke="#dfba73" stroke-width="2"/>
@@ -1009,8 +1348,6 @@
 
       <!-- Envelope Body -->
       <div class="envelope-body">
-        
-        <!-- Royal Invitation Letter (Glides out) -->
         <div class="envelope-card-inner">
           <div class="card-seal-om">&#2384;</div>
           <div class="card-names-gold">Ankush &amp; Supriya</div>
@@ -1018,14 +1355,12 @@
           <div class="card-date-gold">10 November 2026</div>
         </div>
 
-        <!-- Front Pocket Geometry -->
         <svg class="envelope-pocket-svg" viewBox="0 0 320 230">
           <polygon points="0,230 0,0 160,115" fill="#42050e" stroke="#c99f4d" stroke-width="1.2"/>
           <polygon points="320,230 320,0 160,115" fill="#38030b" stroke="#c99f4d" stroke-width="1.2"/>
           <polygon points="0,230 320,230 160,95" fill="#4d0611" stroke="#dfba73" stroke-width="1.5"/>
         </svg>
 
-        <!-- Gold Wax Seal Stamp Button -->
         <div class="envelope-seal" id="seal-trigger">
           <span>A &hearts; S</span>
           <small>OPEN</small>
@@ -1033,7 +1368,6 @@
       </div>
     </div>
 
-    <!-- Tap Hint Pill -->
     <div class="open-tap-pill">
       ✨ Tap Wax Seal to Open ✨
     </div>
@@ -1044,7 +1378,13 @@
 
     <!-- HERO SECTION -->
     <section class="hero-reel">
-      <div class="om-ganesh">&#2384; Shree Ganeshaya Namah &#2384;</div>
+      
+      <!-- TRADITIONAL SHREE GANESH JI CIRCULAR MEDALLION -->
+      <div class="ganesh-circle-frame" title="Shree Ganesha">
+        <img class="ganesh-circle-img" src="ganesh.jpg" alt="Shree Ganesh" onerror="this.src='ganesh.png'; this.onerror=()=>this.src='https://images.unsplash.com/photo-1567591414240-e224e77ef79f?auto=format&fit=crop&w=500&q=80'" />
+      </div>
+
+      <div class="ganesh-hindi-script">॥ श्री गणेशाय नमः ॥</div>
       <div class="ganesh-mantra">
         वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ ।<br/>
         निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा ॥
@@ -1096,7 +1436,37 @@
       </div>
     </section>
 
-    <!-- 3. VERTICAL REEL PHOTO FEED (SWIPE UP ON MOBILE) -->
+    <!-- CARD 1: MEET THE COUPLE PROFILE SPOTLIGHT (groom.jpg & bride.jpg) -->
+    <section>
+      <div class="section-title">
+        <h2>The Couple</h2>
+        <span>Two Hearts, One Journey</span>
+      </div>
+
+      <div class="profile-cards-grid">
+        <!-- Groom Card -->
+        <div class="profile-card">
+          <div class="profile-avatar-frame">
+            <img src="groom.jpg" alt="Ankush" onerror="this.src='chapter4.jpg'" />
+          </div>
+          <div class="profile-role">The Groom</div>
+          <div class="profile-name">Ankush</div>
+          <div class="profile-detail">S/o Smt. Sweety Gupta &amp; Sh. Naresh Kumar</div>
+        </div>
+
+        <!-- Bride Card -->
+        <div class="profile-card">
+          <div class="profile-avatar-frame">
+            <img src="bride.jpg" alt="Supriya" onerror="this.src='chapter2.jpg'" />
+          </div>
+          <div class="profile-role">The Bride</div>
+          <div class="profile-name">Supriya</div>
+          <div class="profile-detail">D/o Ms. Nirmala Devi &amp; Mr. Karamchand</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CARD 2: VERTICAL REEL PHOTO FEED -->
     <section id="gallery-section">
       <div class="section-title">
         <h2>Memories</h2>
@@ -1175,7 +1545,7 @@
       </div>
     </section>
 
-    <!-- 4. CEREMONIES TIMELINE -->
+    <!-- CARD 3: ALL 6 CEREMONY CARDS (FIXED LOCAL + RELIABLE FALLBACKS + EXACT IMAGE FITTING) -->
     <section id="events-section">
       <div class="section-title">
         <h2>Ceremonies</h2>
@@ -1183,129 +1553,228 @@
       </div>
 
       <div class="events-flow">
-        <!-- 1. Sukhmani Sahib Path -->
+        
+        <!-- 1. Sukhmani Sahib Path & Satsang -->
         <div class="event-card">
-          <div class="card-top-row">
-            <div class="card-title-group">
-              <h3>Sukhmani Sahib Path &amp; Satsang</h3>
-              <div class="event-date">Wednesday, 04 November 2026</div>
+          <div class="event-banner-wrap">
+            <img class="event-banner-img" src="sukhmani.jpg" alt="Sukhmani Sahib Path" onerror="this.src='path.jpg'; this.onerror=()=>this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Harmandir_Sahib_1.jpg/800px-Harmandir_Sahib_1.jpg'" />
+            <div class="event-banner-overlay">
+              <span class="event-badge-tag">🕊️ Holy Satsang</span>
+              <span style="color:#fef0c7; font-size:0.75rem; letter-spacing:1px; font-weight:600;">WED, 04 NOV</span>
             </div>
-            <div class="card-time-pill">08:00 AM</div>
           </div>
-          <div class="metadata-row">
-            <span class="meta-pill">📍 Home Venue</span>
-            <span class="meta-pill attire">👗 Attire: Traditional Pastels</span>
-            <span class="meta-pill">🕊️ Holy Satsang</span>
-          </div>
-          <div class="card-actions">
-            <a class="btn-action-sm btn-map-sm" href="https://www.google.com/maps/place/Garden+Floor+Extension/@30.7484666,76.6255124,17z/data=!4m6!3m5!1s0x390ffbcc44bc1a7d:0x85469f5d5404f53!8m2!3d30.7484436!4d76.6281195!16s%2Fg%2F11s7wsmfmv" target="_blank">📍 Maps</a>
-            <a class="btn-action-sm btn-cal-sm" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Sukhmani+Sahib+Path+-+Ankush+weds+Supriya&dates=20261104T023000Z/20261104T063000Z&location=Garden+Floor+Extension,+Kharar" target="_blank">📅 Add to Calendar</a>
+          <div class="event-card-body">
+            <div class="card-top-row">
+              <div class="card-title-group">
+                <h3>Sukhmani Sahib Path &amp; Satsang</h3>
+                <div class="event-subheading">Divine Blessings &amp; Spiritual Kirtan</div>
+                <div class="event-date">Wednesday, 04 November 2026</div>
+              </div>
+              <div class="card-time-pill">08:00 AM</div>
+            </div>
+            <p class="card-ritual-desc">An auspicious beginning to our celebrations with sacred path, divine kirtan, and heartfelt prayers.</p>
+            <div class="metadata-row">
+              <span class="meta-pill">📍 Home Venue</span>
+              <span class="meta-pill"><span class="color-dot" style="background:#FAD2E1;"></span> Attire: Traditional Pastels</span>
+              <span class="meta-pill">🌸 Langar Prasad</span>
+            </div>
+            <div class="card-actions">
+              <a class="btn-action-sm btn-map-sm" href="https://www.google.com/maps/place/Garden+Floor+Extension/@30.7484666,76.6255124,17z/data=!4m6!3m5!1s0x390ffbcc44bc1a7d:0x85469f5d5404f53!8m2!3d30.7484436!4d76.6281195!16s%2Fg%2F11s7wsmfmv" target="_blank">📍 Maps</a>
+              <a class="btn-action-sm btn-cal-sm" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Sukhmani+Sahib+Path+-+Ankush+weds+Supriya&dates=20261104T023000Z/20261104T063000Z&location=Garden+Floor+Extension,+Kharar" target="_blank">📅 Add to Calendar</a>
+            </div>
           </div>
         </div>
 
-        <!-- 2. Shagun -->
+        <!-- 2. Shagun Ceremony -->
         <div class="event-card">
-          <div class="card-top-row">
-            <div class="card-title-group">
-              <h3>Shagun Ceremony</h3>
-              <div class="event-date">Thursday, 05 November 2026</div>
+          <div class="event-banner-wrap">
+            <img class="event-banner-img banner-shagun" src="shagun.jpg" alt="Indian Shagun Ceremony" onerror="this.src='https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=800&q=80'; this.onerror=()=>this.src='https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80'" />
+            <div class="event-banner-overlay">
+              <span class="event-badge-tag">🥥 Auspicious Sagan</span>
+              <span style="color:#fef0c7; font-size:0.75rem; letter-spacing:1px; font-weight:600;">THU, 05 NOV</span>
             </div>
-            <div class="card-time-pill">11:00 AM</div>
           </div>
-          <div class="metadata-row">
-            <span class="meta-pill">📍 Home Venue</span>
-            <span class="meta-pill attire">👗 Attire: Ethnic Festive</span>
-            <span class="meta-pill">🥥 Shagun Rituals</span>
-          </div>
-          <div class="card-actions">
-            <a class="btn-action-sm btn-map-sm" href="https://www.google.com/maps/place/Garden+Floor+Extension/@30.7484666,76.6255124,17z/data=!4m6!3m5!1s0x390ffbcc44bc1a7d:0x85469f5d5404f53!8m2!3d30.7484436!4d76.6281195!16s%2Fg%2F11s7wsmfmv" target="_blank">📍 Maps</a>
-            <a class="btn-action-sm btn-cal-sm" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Shagun+Ceremony+-+Ankush+weds+Supriya&dates=20261105T053000Z/20261105T093000Z&location=Garden+Floor+Extension,+Kharar" target="_blank">📅 Add to Calendar</a>
+          <div class="event-card-body">
+            <div class="card-top-row">
+              <div class="card-title-group">
+                <h3>Shagun Ceremony</h3>
+                <div class="event-subheading">Auspicious Sagan &amp; Family Blessings</div>
+                <div class="event-date">Thursday, 05 November 2026</div>
+              </div>
+              <div class="card-time-pill">11:00 AM</div>
+            </div>
+            <p class="card-ritual-desc">Traditional sagan rituals, sharing of dry fruits and sweets, exchanging heartfelt auspicious blessings.</p>
+            <div class="metadata-row">
+              <span class="meta-pill">📍 Home Venue</span>
+              <span class="meta-pill"><span class="color-dot" style="background:#E63946;"></span> Attire: Ethnic Festive</span>
+              <span class="meta-pill">✨ Shagun Feast</span>
+            </div>
+            <div class="card-actions">
+              <a class="btn-action-sm btn-map-sm" href="https://www.google.com/maps/place/Garden+Floor+Extension/@30.7484666,76.6255124,17z/data=!4m6!3m5!1s0x390ffbcc44bc1a7d:0x85469f5d5404f53!8m2!3d30.7484436!4d76.6281195!16s%2Fg%2F11s7wsmfmv" target="_blank">📍 Maps</a>
+              <a class="btn-action-sm btn-cal-sm" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Shagun+Ceremony+-+Ankush+weds+Supriya&dates=20261105T053000Z/20261105T093000Z&location=Garden+Floor+Extension,+Kharar" target="_blank">📅 Add to Calendar</a>
+            </div>
           </div>
         </div>
 
-        <!-- 3. DJ Night -->
+        <!-- 3. DJ Night & Dinner -->
         <div class="event-card">
-          <div class="card-top-row">
-            <div class="card-title-group">
-              <h3>DJ Night &amp; Dinner</h3>
-              <div class="event-date">Friday, 06 November 2026</div>
+          <div class="event-banner-wrap">
+            <img class="event-banner-img" src="dj.jpg" alt="DJ Night Beats Theme" onerror="this.src='djnight.jpg'; this.onerror=()=>this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/DJ_playing_techno_music%2C_nightlife%2C_Koh_Chang%2C_Thailand.jpg/800px-DJ_playing_techno_music%2C_nightlife%2C_Koh_Chang%2C_Thailand.jpg'" />
+            <div class="event-banner-overlay">
+              <span class="event-badge-tag">🪩 Dance &amp; Beats</span>
+              <span style="color:#fef0c7; font-size:0.75rem; letter-spacing:1px; font-weight:600;">FRI, 06 NOV</span>
             </div>
-            <div class="card-time-pill">07:00 PM</div>
           </div>
-          <div class="metadata-row">
-            <span class="meta-pill">📍 Home Venue</span>
-            <span class="meta-pill attire">👗 Attire: Glitz &amp; Indo-Western</span>
-            <span class="meta-pill">🪩 Dance &amp; Beats</span>
-          </div>
-          <div class="card-actions">
-            <a class="btn-action-sm btn-map-sm" href="https://www.google.com/maps/place/Garden+Floor+Extension/@30.7484666,76.6255124,17z/data=!4m6!3m5!1s0x390ffbcc44bc1a7d:0x85469f5d5404f53!8m2!3d30.7484436!4d76.6281195!16s%2Fg%2F11s7wsmfmv" target="_blank">📍 Maps</a>
-            <a class="btn-action-sm btn-cal-sm" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=DJ+Night+-+Ankush+weds+Supriya&dates=20261106T133000Z/20261106T173000Z&location=Garden+Floor+Extension,+Kharar" target="_blank">📅 Add to Calendar</a>
+          <div class="event-card-body">
+            <div class="card-top-row">
+              <div class="card-title-group">
+                <h3>DJ Night &amp; Dinner</h3>
+                <div class="event-subheading">Glitz, Music &amp; Celebrations</div>
+                <div class="event-date">Friday, 06 November 2026</div>
+              </div>
+              <div class="card-time-pill">07:00 PM</div>
+            </div>
+            <p class="card-ritual-desc">An evening of dynamic Punjabi beats, non-stop dancing, dazzling lights, and delicious dinner.</p>
+            <div class="metadata-row">
+              <span class="meta-pill">📍 Home Venue</span>
+              <span class="meta-pill"><span class="color-dot" style="background:#E2C044;"></span> Attire: Glitz &amp; Indo-Western</span>
+              <span class="meta-pill">🍸 Festive Feast</span>
+            </div>
+            <div class="card-actions">
+              <a class="btn-action-sm btn-map-sm" href="https://www.google.com/maps/place/Garden+Floor+Extension/@30.7484666,76.6255124,17z/data=!4m6!3m5!1s0x390ffbcc44bc1a7d:0x85469f5d5404f53!8m2!3d30.7484436!4d76.6281195!16s%2Fg%2F11s7wsmfmv" target="_blank">📍 Maps</a>
+              <a class="btn-action-sm btn-cal-sm" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=DJ+Night+-+Ankush+weds+Supriya&dates=20261106T133000Z/20261106T173000Z&location=Garden+Floor+Extension,+Kharar" target="_blank">📅 Add to Calendar</a>
+            </div>
           </div>
         </div>
 
-        <!-- 4. Jago -->
+        <!-- 4. Traditional Jago Celebration -->
         <div class="event-card">
-          <div class="card-top-row">
-            <div class="card-title-group">
-              <h3>Traditional Jago Celebration</h3>
-              <div class="event-date">Monday, 09 November 2026</div>
+          <div class="event-banner-wrap">
+            <img class="event-banner-img banner-jago" src="jago.jpg" alt="Jago Night Theme" onerror="this.src='https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=800&q=80'; this.onerror=()=>this.src='https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=800&q=80'" />
+            <div class="event-banner-overlay">
+              <span class="event-badge-tag">🪔 Jago Toli &amp; Giddha</span>
+              <span style="color:#ffffff; font-size:0.75rem; letter-spacing:1px; font-weight:700;">MON, 09 NOV</span>
             </div>
-            <div class="card-time-pill">07:00 PM</div>
           </div>
-          <div class="metadata-row">
-            <span class="meta-pill">📍 Home Venue</span>
-            <span class="meta-pill attire">👗 Attire: Vibrant Punjabi Attire</span>
-            <span class="meta-pill">🪔 Jago Toli &amp; Giddha</span>
-          </div>
-          <div class="card-actions">
-            <a class="btn-action-sm btn-map-sm" href="https://www.google.com/maps/place/Garden+Floor+Extension/@30.7484666,76.6255124,17z/data=!4m6!3m5!1s0x390ffbcc44bc1a7d:0x85469f5d5404f53!8m2!3d30.7484436!4d76.6281195!16s%2Fg%2F11s7wsmfmv" target="_blank">📍 Maps</a>
-            <a class="btn-action-sm btn-cal-sm" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Jago+Night+-+Ankush+weds+Supriya&dates=20261109T133000Z/20261109T173000Z&location=Garden+Floor+Extension,+Kharar" target="_blank">📅 Add to Calendar</a>
+          <div class="event-card-body">
+            <div class="card-top-row">
+              <div class="card-title-group">
+                <h3>Traditional Jago Celebration</h3>
+                <div class="event-subheading">Punjabi Folk Traditions &amp; Dhol</div>
+                <div class="event-date">Monday, 09 November 2026</div>
+              </div>
+              <div class="card-time-pill">07:00 PM</div>
+            </div>
+            <p class="card-ritual-desc">Carrying the illuminated Jago brass pot, traditional boliyan, energetic giddha, and infectious dhol beats.</p>
+            <div class="metadata-row">
+              <span class="meta-pill">📍 Home Venue</span>
+              <span class="meta-pill"><span class="color-dot" style="background:#FF5722;"></span> Attire: Vibrant Punjabi Attire</span>
+              <span class="meta-pill">🥁 Dhol &amp; Masti</span>
+            </div>
+            <div class="card-actions">
+              <a class="btn-action-sm btn-map-sm" href="https://www.google.com/maps/place/Garden+Floor+Extension/@30.7484666,76.6255124,17z/data=!4m6!3m5!1s0x390ffbcc44bc1a7d:0x85469f5d5404f53!8m2!3d30.7484436!4d76.6281195!16s%2Fg%2F11s7wsmfmv" target="_blank">📍 Maps</a>
+              <a class="btn-action-sm btn-cal-sm" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Jago+Night+-+Ankush+weds+Supriya&dates=20261109T133000Z/20261109T173000Z&location=Garden+Floor+Extension,+Kharar" target="_blank">📅 Add to Calendar</a>
+            </div>
           </div>
         </div>
 
-        <!-- 5. Haldi -->
+        <!-- 5. Saanth & Haldi Utsav -->
         <div class="event-card">
-          <div class="card-top-row">
-            <div class="card-title-group">
-              <h3>Saanth &amp; Haldi Utsav</h3>
-              <div class="event-date">Tuesday, 10 November 2026</div>
+          <div class="event-banner-wrap">
+            <img class="event-banner-img banner-haldi" src="haldi.jpg" alt="Authentic Haldi Ceremony Brass Urli" onerror="this.src='https://images.unsplash.com/photo-1610030469668-93510cb2866c?auto=format&fit=crop&w=800&q=80'" />
+            <div class="event-banner-overlay">
+              <span class="event-badge-tag">AUSPICIOUS RITUAL</span>
+              <span style="color:#ffffff; font-size:0.75rem; letter-spacing:1px; font-weight:700;">TUE, 10 NOV</span>
             </div>
-            <div class="card-time-pill">10:00 AM</div>
           </div>
-          <div class="metadata-row">
-            <span class="meta-pill">📍 Home Venue</span>
-            <span class="meta-pill attire">👗 Attire: Haldi Yellow</span>
-            <span class="meta-pill">🌼 Flower Shower</span>
-          </div>
-          <div class="card-actions">
-            <a class="btn-action-sm btn-map-sm" href="https://www.google.com/maps/place/Garden+Floor+Extension/@30.7484666,76.6255124,17z/data=!4m6!3m5!1s0x390ffbcc44bc1a7d:0x85469f5d5404f53!8m2!3d30.7484436!4d76.6281195!16s%2Fg%2F11s7wsmfmv" target="_blank">📍 Maps</a>
-            <a class="btn-action-sm btn-cal-sm" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Saanth+and+Haldi+-+Ankush+weds+Supriya&dates=20261110T043000Z/20261110T083000Z&location=Garden+Floor+Extension,+Kharar" target="_blank">📅 Add to Calendar</a>
+          <div class="event-card-body">
+            <div class="card-top-row">
+              <div class="card-title-group">
+                <h3>Saanth &amp; Haldi Utsav</h3>
+                <div class="event-subheading">Turmeric Blessings &amp; Golden Hues</div>
+                <div class="event-date">Tuesday, 10 November 2026</div>
+              </div>
+              <div class="card-time-pill">10:00 AM</div>
+            </div>
+            <p class="card-ritual-desc">A joyful sunshine-filled morning applying sacred turmeric paste with marigold showers, love, and warm family blessings.</p>
+            <div class="metadata-row">
+              <span class="meta-pill">📍 Home Venue</span>
+              <span class="meta-pill"><span class="color-dot" style="background:#FFC107;"></span> Attire: Haldi Yellow</span>
+              <span class="meta-pill">🌼 Flower Shower</span>
+            </div>
+            <div class="card-actions">
+              <a class="btn-action-sm btn-map-sm" href="https://www.google.com/maps/place/Garden+Floor+Extension/@30.7484666,76.6255124,17z/data=!4m6!3m5!1s0x390ffbcc44bc1a7d:0x85469f5d5404f53!8m2!3d30.7484436!4d76.6281195!16s%2Fg%2F11s7wsmfmv" target="_blank">📍 Maps</a>
+              <a class="btn-action-sm btn-cal-sm" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Saanth+and+Haldi+-+Ankush+weds+Supriya&dates=20261110T043000Z/20261110T083000Z&location=Garden+Floor+Extension,+Kharar" target="_blank">📅 Add to Calendar</a>
+            </div>
           </div>
         </div>
 
-        <!-- 6. Barat (Main Ceremony) -->
+        <!-- 6. Barat & Grand Wedding -->
         <div class="event-card highlight">
-          <div class="card-top-row">
-            <div class="card-title-group">
-              <h3 style="color:#6b0b1a;">Barat &amp; Grand Wedding</h3>
-              <div class="event-date" style="color:#aa771c;">Tuesday, 10 November 2026</div>
+          <div class="event-banner-wrap">
+            <img class="event-banner-img" src="barat.jpg" alt="Royal Wedding Mandap and Baraat Swagat" onerror="this.src='https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=800&q=80'; this.onerror=()=>this.src='https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80'" />
+            <div class="event-banner-overlay">
+              <span class="event-badge-tag" style="background:rgba(170,119,28,0.95); border-color:#fff;">GRAND CEREMONY</span>
+              <span style="color:#ffffff; font-size:0.75rem; letter-spacing:1px; font-weight:700;">★ GRAND MAIN EVENT ★</span>
             </div>
-            <div class="card-time-pill">06:00 PM</div>
           </div>
-          <div class="metadata-row">
-            <span class="meta-pill" style="background:#fce2b8;">📍 MJ Farm, Badala Road</span>
-            <span class="meta-pill attire">👑 Attire: Royal Formal</span>
-            <span class="meta-pill">✨ Grand Varmala &amp; Dinner</span>
+          <div class="event-card-body">
+            <div class="card-top-row">
+              <div class="card-title-group">
+                <h3 style="color:#6b0b1a;">Baraat Swagat &amp; Grand Wedding</h3>
+                <div class="event-subheading">The Royal Wedding Ceremony &amp; Feast</div>
+                <div class="event-date" style="color:#aa771c;">Tuesday, 10 November 2026</div>
+              </div>
+              <div class="card-time-pill">06:00 PM</div>
+            </div>
+            <p class="card-ritual-desc">Grand reception of the Baraat procession followed by the Milni, Jaimala, traditional wedding rituals, and an opulent royal feast.</p>
+            <div class="metadata-row">
+              <span class="meta-pill" style="background:#fce2b8;">📍 MJ Farm, Badala Road</span>
+              <span class="meta-pill"><span class="color-dot" style="background:#800020;"></span> Attire: Royal Formal</span>
+              <span class="meta-pill">👑 Grand Varmala &amp; Dinner</span>
+            </div>
+            <div class="card-actions">
+              <a class="btn-action-sm btn-map-sm" style="background:#aa771c; color:#fff;" href="https://www.google.com/maps/search/?api=1&query=Mj+farm+badala+road+sahibzada+ajit+singh+nagar+kharar+punjab" target="_blank">📍 Get Directions</a>
+              <a class="btn-action-sm btn-cal-sm" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Barat+and+Wedding+-+Ankush+weds+Supriya&dates=20261110T123000Z/20261110T183000Z&location=Mj+farm+badala+road+sahibzada+ajit+singh+nagar+kharar+punjab" target="_blank">📅 Add to Calendar</a>
+            </div>
           </div>
-          <div class="card-actions">
-            <a class="btn-action-sm btn-map-sm" style="background:#aa771c; color:#fff;" href="https://www.google.com/maps/search/?api=1&query=Mj+farm+badala+road+sahibzada+ajit+singh+nagar+kharar+punjab" target="_blank">📍 Navigate Venue</a>
-            <a class="btn-action-sm btn-cal-sm" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Barat+and+Wedding+-+Ankush+weds+Supriya&dates=20261110T123000Z/20261110T183000Z&location=Mj+farm+badala+road+sahibzada+ajit+singh+nagar+kharar+punjab" target="_blank">📅 Add to Calendar</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CARD 4: CELEBRATION HASHTAG CARD -->
+    <section>
+      <div class="hashtag-card">
+        <div class="hashtag-title">#AnkushWedsSupriya</div>
+        <div class="hashtag-sub">
+          Capture the magical moments, tag our official hashtag, and share your beautiful memories with us!
+        </div>
+      </div>
+    </section>
+
+    <!-- CARD 5: THOUGHTFUL GUEST GUIDE CARD -->
+    <section>
+      <div class="guide-card">
+        <div class="guide-header">A Note for Our Guests</div>
+        <div class="guide-grid">
+          <div class="guide-item">
+            <span class="icon">🎁</span>
+            <div><strong>Warm Blessings:</strong> Your gracious presence, love, and heartfelt prayers are the greatest gift for Ankush &amp; Supriya as they begin this sacred journey together.</div>
+          </div>
+          <div class="guide-item">
+            <span class="icon">🧥</span>
+            <div><strong>Pleasant Evenings:</strong> November evenings in Kharar carry a refreshing nip in the air. Keep light layers handy for comfortable dancing and dining!</div>
+          </div>
+          <div class="guide-item">
+            <span class="icon">🚗</span>
+            <div><strong>Parking &amp; Valet:</strong> Designated parking is available at MJ Farm, and neighborhood parking is coordinated at Garden Floor Extension.</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 5. ROYAL FAMILY GREETING FOOTER -->
+    <!-- CARD 6: ROYAL FAMILY FOOTER -->
     <footer>
       <div class="invitation-card-box">
         <div class="family-section-label">Cordially Invited By</div>
@@ -1402,7 +1871,46 @@
 
     document.getElementById('music-btn').addEventListener('click', toggleMusic);
 
-    // 2. 3D ENVELOPE OPENING ANIMATION (INSTAGRAM STYLE)
+    // 2. NATIVE & FALLBACK SHARE HANDLER
+    const shareBtn = document.getElementById('share-btn');
+    if (shareBtn) {
+      shareBtn.addEventListener('click', async () => {
+        const shareData = {
+          title: 'Ankush weds Supriya invitation',
+          text: 'With the blessings of Sweety Gupta & Naresh Kumar. Barat & Wedding on 10 November 2026 at MJ Farm, Kharar.',
+          url: window.location.href
+        };
+        if (navigator.share) {
+          try {
+            await navigator.share(shareData);
+          } catch (err) {
+            // User dismissed or share error
+          }
+        } else {
+          navigator.clipboard.writeText(window.location.href).then(() => {
+            alert('Invitation link copied to clipboard!');
+          });
+        }
+      });
+    }
+
+    // 3. SCROLL TO TOP ARROW BUTTON HANDLER
+    const scrollTopBtn = document.getElementById('scroll-top-btn');
+    if (scrollTopBtn) {
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 380) {
+          scrollTopBtn.classList.add('visible');
+        } else {
+          scrollTopBtn.classList.remove('visible');
+        }
+      }, { passive: true });
+
+      scrollTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+
+    // 4. 3D ENVELOPE OPENING ANIMATION & SCROLL TRIGGER
     const envelopeScreen = document.getElementById('envelope-screen');
     const envelopeStage = document.getElementById('envelope-trigger');
     let isEnvelopeOpened = false;
@@ -1411,24 +1919,19 @@
       if (isEnvelopeOpened) return;
       isEnvelopeOpened = true;
 
-      // 1. Start Music
       playYouTube();
-
-      // 2. Animate 3D Envelope (Flap flips open, Card glides up)
       envelopeStage.classList.add('is-open');
-
-      // 3. Trigger Rose Petals & Gold Burst explosion
       burstFXParticles();
 
-      // 4. Reveal Main Website smoothly
       setTimeout(() => {
         envelopeScreen.classList.add('opened');
+        revealCardsInView();
       }, 1200);
     }
 
     envelopeStage.addEventListener('click', triggerEnvelopeOpen);
 
-    // 3. REEL CONTROLLER (SWIPE UP / DOWN)
+    // 5. REEL CONTROLLER
     const reelFeed = document.getElementById('reel-feed');
     const reelViewport = document.getElementById('reel-viewport');
     const btnReelUp = document.getElementById('btn-reel-up');
@@ -1465,7 +1968,7 @@
     btnLike.addEventListener('click', spawnHeartEffect);
     reelFeed.addEventListener('dblclick', spawnHeartEffect);
 
-    // 4. COUNTDOWN TIMER (10 Nov 2026, 06:00 PM IST)
+    // 6. COUNTDOWN TIMER (10 Nov 2026, 06:00 PM IST)
     const weddingDate = new Date('2026-11-10T18:00:00+05:30').getTime();
     function updateTimer() {
       const now = new Date().getTime();
@@ -1480,16 +1983,36 @@
     setInterval(updateTimer, 1000);
     updateTimer();
 
-    // 5. SCROLL OBSERVER FOR CARDS
-    const cards = document.querySelectorAll('.event-card');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) e.target.classList.add('in-view');
-      });
-    }, { threshold: 0.12 });
-    cards.forEach(card => observer.observe(card));
+    // 7. RELIABLE 3D SCROLL ENTRANCE OBSERVER FOR ALL CARDS
+    const allAnimatedCards = document.querySelectorAll(
+      '.event-card, .profile-card, .hashtag-card, .guide-card, .invitation-card-box'
+    );
 
-    // 6. PETAL & GOLD PARTICLES ENGINE
+    const cardObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in-view');
+        }
+      });
+    }, { 
+      threshold: 0.08,
+      rootMargin: '0px 0px -40px 0px' 
+    });
+
+    allAnimatedCards.forEach(card => cardObserver.observe(card));
+
+    function revealCardsInView() {
+      allAnimatedCards.forEach(card => {
+        const rect = card.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 30) {
+          card.classList.add('in-view');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', revealCardsInView, { passive: true });
+
+    // 8. PETAL & GOLD PARTICLES ENGINE
     const canvas = document.getElementById('fx-canvas');
     const ctx = canvas.getContext('2d');
     let w = canvas.width = window.innerWidth;
@@ -1539,7 +2062,7 @@
       constructor() { this.init(); }
       init() {
         this.x = Math.random() * w;
-        this.y = -15;
+        this.y = Math.random() * h;
         this.size = Math.random() * 1.8 + 0.6;
         this.vy = Math.random() * 0.6 + 0.2;
         this.alpha = Math.random() * 0.7 + 0.2;
