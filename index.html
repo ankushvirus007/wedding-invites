@@ -72,11 +72,11 @@
       z-index: 995;
     }
 
-    /* Floating Top Action Bar: Share + Music */
+    /* Floating Top Action Bar: Music + Share on Far Right */
     .top-action-bar {
       position: fixed;
-      top: 18px;
-      right: 18px;
+      top: 16px;
+      right: 16px;
       z-index: 999;
       display: flex;
       align-items: center;
@@ -87,7 +87,7 @@
       background: rgba(30, 2, 7, 0.92);
       border: 1px solid var(--gold-primary);
       border-radius: 30px;
-      padding: 8px 13px;
+      padding: 7px 12px;
       display: flex;
       align-items: center;
       gap: 7px;
@@ -97,21 +97,46 @@
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
       color: var(--gold-light);
       font-family: 'Montserrat', sans-serif;
-      font-size: 0.7rem;
-      letter-spacing: 1.5px;
+      font-size: 0.68rem;
+      letter-spacing: 1.2px;
       text-transform: uppercase;
       font-weight: 600;
-      transition: transform 0.2s, background 0.2s, border-color 0.2s;
       outline: none;
+      transition: transform 0.2s;
     }
 
     .top-pill-btn:active {
-      transform: scale(0.93);
+      transform: scale(0.92);
     }
 
-    .top-pill-btn svg {
-      width: 14px;
-      height: 14px;
+    /* Compact Circular Share Button on the Right */
+    .top-icon-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: rgba(30, 2, 7, 0.92);
+      border: 1px solid var(--gold-primary);
+      color: var(--gold-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+      outline: none;
+      padding: 0;
+      flex-shrink: 0;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .top-icon-btn:active {
+      transform: scale(0.9);
+    }
+
+    .top-icon-btn svg {
+      width: 15px;
+      height: 15px;
       stroke: var(--gold-primary);
     }
 
@@ -144,8 +169,8 @@
       position: fixed;
       bottom: calc(76px + var(--safe-bottom));
       right: 18px;
-      width: 44px;
-      height: 44px;
+      width: 42px;
+      height: 42px;
       border-radius: 50%;
       background: rgba(30, 2, 7, 0.92);
       border: 1.5px solid var(--gold-primary);
@@ -153,7 +178,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1rem;
+      font-size: 0.95rem;
       cursor: pointer;
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6), 0 0 12px rgba(223, 186, 115, 0.3);
       backdrop-filter: blur(8px);
@@ -934,6 +959,7 @@
       box-shadow: 0 16px 40px rgba(191, 149, 63, 0.45);
     }
 
+    /* SIZED TO PRESERVE ENTIRE HALDI & JAGO DETAILS WITHOUT CUTTING HEADS OR POTS */
     .event-banner-wrap {
       position: relative;
       width: 100%;
@@ -954,7 +980,7 @@
       transform: scale(1.05);
     }
 
-    /* Alignments for ceremony banners */
+    /* Dedicated Alignment Fixes */
     .banner-haldi {
       object-position: center 30% !important;
     }
@@ -1306,19 +1332,8 @@
 
   <canvas id="fx-canvas"></canvas>
 
-  <!-- FLOATING TOP CONTROLS: SHARE & MUSIC PILLS -->
+  <!-- FLOATING TOP CONTROLS: MUSIC PILL + COMPACT SHARE BUTTON ON FAR RIGHT -->
   <div class="top-action-bar">
-    <button class="top-pill-btn" id="share-btn" title="Share Invitation">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="18" cy="5" r="3"></circle>
-        <circle cx="6" cy="12" r="3"></circle>
-        <circle cx="18" cy="19" r="3"></circle>
-        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
-        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
-      </svg>
-      <span>Share</span>
-    </button>
-
     <div class="top-pill-btn" id="music-btn" title="Toggle Music">
       <div class="music-bars">
         <div class="music-bar paused"></div>
@@ -1327,6 +1342,16 @@
       </div>
       <span id="music-label">Muted</span>
     </div>
+
+    <button class="top-icon-btn" id="share-btn" title="Share Invitation" aria-label="Share">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="18" cy="5" r="3"></circle>
+        <circle cx="6" cy="12" r="3"></circle>
+        <circle cx="18" cy="19" r="3"></circle>
+        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+      </svg>
+    </button>
   </div>
 
   <!-- FLOATING SCROLL TO TOP ARROW BUTTON -->
@@ -1647,7 +1672,7 @@
           </div>
         </div>
 
-        <!-- 4. Traditional Jago Celebration -->
+        <!-- 4. Traditional Jago Celebration (Fitted with banner-jago) -->
         <div class="event-card">
           <div class="event-banner-wrap">
             <img class="event-banner-img banner-jago" src="jago.jpg" alt="Jago Night Theme" onerror="this.src='https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=800&q=80'; this.onerror=()=>this.src='https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=800&q=80'" />
@@ -1678,7 +1703,7 @@
           </div>
         </div>
 
-        <!-- 5. Saanth & Haldi Utsav -->
+        <!-- 5. Saanth & Haldi Utsav (Fitted with banner-haldi) -->
         <div class="event-card">
           <div class="event-banner-wrap">
             <img class="event-banner-img banner-haldi" src="haldi.jpg" alt="Authentic Haldi Ceremony Brass Urli" onerror="this.src='https://images.unsplash.com/photo-1610030469668-93510cb2866c?auto=format&fit=crop&w=800&q=80'" />
@@ -1884,7 +1909,7 @@
           try {
             await navigator.share(shareData);
           } catch (err) {
-            // User dismissed or share error
+            // User dismissed or canceled
           }
         } else {
           navigator.clipboard.writeText(window.location.href).then(() => {
@@ -2062,7 +2087,7 @@
       constructor() { this.init(); }
       init() {
         this.x = Math.random() * w;
-        this.y = Math.random() * h;
+        this.y = -15;
         this.size = Math.random() * 1.8 + 0.6;
         this.vy = Math.random() * 0.6 + 0.2;
         this.alpha = Math.random() * 0.7 + 0.2;
